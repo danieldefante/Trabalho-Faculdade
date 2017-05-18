@@ -1,10 +1,18 @@
 package entities;
-// Generated May 15, 2017 10:59:13 PM by Hibernate Tools 4.3.1
+// Generated May 18, 2017 8:21:19 PM by Hibernate Tools 4.3.1
 
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -17,37 +25,57 @@ import javax.persistence.Table;
 public class Atracoes  implements java.io.Serializable {
 
 
-     private int id;
+     private Integer id;
+     private Contatos contatos;
+     private Enderecos enderecos;
      private String nome;
-     private int contatoId;
-     private Integer enderecoId;
+     private Set<EventosAtracoes> eventosAtracoeses = new HashSet<EventosAtracoes>(0);
 
     public Atracoes() {
     }
 
 	
-    public Atracoes(int id, String nome, int contatoId) {
-        this.id = id;
+    public Atracoes(Contatos contatos, String nome) {
+        this.contatos = contatos;
         this.nome = nome;
-        this.contatoId = contatoId;
     }
-    public Atracoes(int id, String nome, int contatoId, Integer enderecoId) {
-       this.id = id;
+    public Atracoes(Contatos contatos, Enderecos enderecos, String nome, Set<EventosAtracoes> eventosAtracoeses) {
+       this.contatos = contatos;
+       this.enderecos = enderecos;
        this.nome = nome;
-       this.contatoId = contatoId;
-       this.enderecoId = enderecoId;
+       this.eventosAtracoeses = eventosAtracoeses;
     }
    
-     @Id 
+     @Id @GeneratedValue(strategy=IDENTITY)
 
     
     @Column(name="id", unique=true, nullable=false)
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
+    }
+
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="contato_id", nullable=false)
+    public Contatos getContatos() {
+        return this.contatos;
+    }
+    
+    public void setContatos(Contatos contatos) {
+        this.contatos = contatos;
+    }
+
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="endereco_id")
+    public Enderecos getEnderecos() {
+        return this.enderecos;
+    }
+    
+    public void setEnderecos(Enderecos enderecos) {
+        this.enderecos = enderecos;
     }
 
     
@@ -60,24 +88,13 @@ public class Atracoes  implements java.io.Serializable {
         this.nome = nome;
     }
 
-    
-    @Column(name="contato_id", nullable=false)
-    public int getContatoId() {
-        return this.contatoId;
+@OneToMany(fetch=FetchType.LAZY, mappedBy="atracoes")
+    public Set<EventosAtracoes> getEventosAtracoeses() {
+        return this.eventosAtracoeses;
     }
     
-    public void setContatoId(int contatoId) {
-        this.contatoId = contatoId;
-    }
-
-    
-    @Column(name="endereco_id")
-    public Integer getEnderecoId() {
-        return this.enderecoId;
-    }
-    
-    public void setEnderecoId(Integer enderecoId) {
-        this.enderecoId = enderecoId;
+    public void setEventosAtracoeses(Set<EventosAtracoes> eventosAtracoeses) {
+        this.eventosAtracoeses = eventosAtracoeses;
     }
 
 

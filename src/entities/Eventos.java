@@ -1,11 +1,17 @@
 package entities;
-// Generated May 15, 2017 10:59:13 PM by Hibernate Tools 4.3.1
+// Generated May 18, 2017 8:21:19 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -20,32 +26,48 @@ import javax.persistence.TemporalType;
 public class Eventos  implements java.io.Serializable {
 
 
-     private int id;
+     private Integer id;
      private String nome;
      private Date dataInicio;
      private Date dataTermino;
      private Date criadoEm;
+     private Set<EventosBuffets> eventosBuffetses = new HashSet<EventosBuffets>(0);
+     private Set<EventosLocais> eventosLocaises = new HashSet<EventosLocais>(0);
+     private Set<EventosAtracoes> eventosAtracoeses = new HashSet<EventosAtracoes>(0);
+     private Set<EventosFuncionarios> eventosFuncionarioses = new HashSet<EventosFuncionarios>(0);
+     private Set<EventosDecoracoes> eventosDecoracoeses = new HashSet<EventosDecoracoes>(0);
 
     public Eventos() {
     }
 
-    public Eventos(int id, String nome, Date dataInicio, Date dataTermino, Date criadoEm) {
-       this.id = id;
+	
+    public Eventos(String nome, Date dataInicio, Date dataTermino, Date criadoEm) {
+        this.nome = nome;
+        this.dataInicio = dataInicio;
+        this.dataTermino = dataTermino;
+        this.criadoEm = criadoEm;
+    }
+    public Eventos(String nome, Date dataInicio, Date dataTermino, Date criadoEm, Set<EventosBuffets> eventosBuffetses, Set<EventosLocais> eventosLocaises, Set<EventosAtracoes> eventosAtracoeses, Set<EventosFuncionarios> eventosFuncionarioses, Set<EventosDecoracoes> eventosDecoracoeses) {
        this.nome = nome;
        this.dataInicio = dataInicio;
        this.dataTermino = dataTermino;
        this.criadoEm = criadoEm;
+       this.eventosBuffetses = eventosBuffetses;
+       this.eventosLocaises = eventosLocaises;
+       this.eventosAtracoeses = eventosAtracoeses;
+       this.eventosFuncionarioses = eventosFuncionarioses;
+       this.eventosDecoracoeses = eventosDecoracoeses;
     }
    
-     @Id 
+     @Id @GeneratedValue(strategy=IDENTITY)
 
     
     @Column(name="id", unique=true, nullable=false)
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -87,6 +109,51 @@ public class Eventos  implements java.io.Serializable {
     
     public void setCriadoEm(Date criadoEm) {
         this.criadoEm = criadoEm;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="eventos")
+    public Set<EventosBuffets> getEventosBuffetses() {
+        return this.eventosBuffetses;
+    }
+    
+    public void setEventosBuffetses(Set<EventosBuffets> eventosBuffetses) {
+        this.eventosBuffetses = eventosBuffetses;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="eventos")
+    public Set<EventosLocais> getEventosLocaises() {
+        return this.eventosLocaises;
+    }
+    
+    public void setEventosLocaises(Set<EventosLocais> eventosLocaises) {
+        this.eventosLocaises = eventosLocaises;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="eventos")
+    public Set<EventosAtracoes> getEventosAtracoeses() {
+        return this.eventosAtracoeses;
+    }
+    
+    public void setEventosAtracoeses(Set<EventosAtracoes> eventosAtracoeses) {
+        this.eventosAtracoeses = eventosAtracoeses;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="eventos")
+    public Set<EventosFuncionarios> getEventosFuncionarioses() {
+        return this.eventosFuncionarioses;
+    }
+    
+    public void setEventosFuncionarioses(Set<EventosFuncionarios> eventosFuncionarioses) {
+        this.eventosFuncionarioses = eventosFuncionarioses;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="eventos")
+    public Set<EventosDecoracoes> getEventosDecoracoeses() {
+        return this.eventosDecoracoeses;
+    }
+    
+    public void setEventosDecoracoeses(Set<EventosDecoracoes> eventosDecoracoeses) {
+        this.eventosDecoracoeses = eventosDecoracoeses;
     }
 
 

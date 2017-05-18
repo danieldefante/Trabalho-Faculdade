@@ -41,9 +41,17 @@ Contributor(s):
 -->
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="gerenciadoreventos"/>
+  <table-filter match-name="pessoas"/>
+  <table-filter match-name="eventos_buffets"/>
+  <table-filter match-name="eventos"/>
+  <table-filter match-name="eventos_atracoes"/>
+  <table-filter match-name="decoracoes"/>
+  <table-filter match-name="eventos_funcionarios"/>
+  <table-filter match-name="contatos"/>
   <table-filter match-name="atracoes"/>
   <table-filter match-name="enderecos"/>
+  <table-filter match-name="eventos_locais"/>
   <table-filter match-name="locais"/>
-  <table-filter match-name="eventos"/>
-  <table-filter match-name="contatos"/>
+  <table-filter match-name="buffets"/>
+  <table-filter match-name="eventos_decoracoes"/>
 </hibernate-reverse-engineering>

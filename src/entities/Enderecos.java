@@ -1,10 +1,16 @@
 package entities;
-// Generated May 15, 2017 10:59:13 PM by Hibernate Tools 4.3.1
+// Generated May 18, 2017 8:21:19 PM by Hibernate Tools 4.3.1
 
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -17,36 +23,54 @@ import javax.persistence.Table;
 public class Enderecos  implements java.io.Serializable {
 
 
-     private int id;
+     private Integer id;
      private String cep;
      private String rua;
      private String bairro;
      private String cidade;
      private String uf;
      private String numero;
+     private Set<Locais> locaises = new HashSet<Locais>(0);
+     private Set<Decoracoes> decoracoeses = new HashSet<Decoracoes>(0);
+     private Set<Atracoes> atracoeses = new HashSet<Atracoes>(0);
+     private Set<Pessoas> pessoases = new HashSet<Pessoas>(0);
+     private Set<Buffets> buffetses = new HashSet<Buffets>(0);
 
     public Enderecos() {
     }
 
-    public Enderecos(int id, String cep, String rua, String bairro, String cidade, String uf, String numero) {
-       this.id = id;
+	
+    public Enderecos(String cep, String rua, String bairro, String cidade, String uf, String numero) {
+        this.cep = cep;
+        this.rua = rua;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.uf = uf;
+        this.numero = numero;
+    }
+    public Enderecos(String cep, String rua, String bairro, String cidade, String uf, String numero, Set<Locais> locaises, Set<Decoracoes> decoracoeses, Set<Atracoes> atracoeses, Set<Pessoas> pessoases, Set<Buffets> buffetses) {
        this.cep = cep;
        this.rua = rua;
        this.bairro = bairro;
        this.cidade = cidade;
        this.uf = uf;
        this.numero = numero;
+       this.locaises = locaises;
+       this.decoracoeses = decoracoeses;
+       this.atracoeses = atracoeses;
+       this.pessoases = pessoases;
+       this.buffetses = buffetses;
     }
    
-     @Id 
+     @Id @GeneratedValue(strategy=IDENTITY)
 
     
     @Column(name="id", unique=true, nullable=false)
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -108,6 +132,51 @@ public class Enderecos  implements java.io.Serializable {
     
     public void setNumero(String numero) {
         this.numero = numero;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="enderecos")
+    public Set<Locais> getLocaises() {
+        return this.locaises;
+    }
+    
+    public void setLocaises(Set<Locais> locaises) {
+        this.locaises = locaises;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="enderecos")
+    public Set<Decoracoes> getDecoracoeses() {
+        return this.decoracoeses;
+    }
+    
+    public void setDecoracoeses(Set<Decoracoes> decoracoeses) {
+        this.decoracoeses = decoracoeses;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="enderecos")
+    public Set<Atracoes> getAtracoeses() {
+        return this.atracoeses;
+    }
+    
+    public void setAtracoeses(Set<Atracoes> atracoeses) {
+        this.atracoeses = atracoeses;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="enderecos")
+    public Set<Pessoas> getPessoases() {
+        return this.pessoases;
+    }
+    
+    public void setPessoases(Set<Pessoas> pessoases) {
+        this.pessoases = pessoases;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="enderecos")
+    public Set<Buffets> getBuffetses() {
+        return this.buffetses;
+    }
+    
+    public void setBuffetses(Set<Buffets> buffetses) {
+        this.buffetses = buffetses;
     }
 
 
