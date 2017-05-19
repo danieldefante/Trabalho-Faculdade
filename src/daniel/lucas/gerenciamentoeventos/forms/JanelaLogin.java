@@ -5,9 +5,11 @@
  */
 package daniel.lucas.gerenciamentoeventos.forms;
 
+import daniel.lucas.gerenciamentoeventos.utils.CorPainelSelecionado;
 import java.awt.Color;
 import javax.swing.Icon;
 import javax.swing.JButton;
+import javax.swing.JTabbedPane;
 import jiconfont.icons.FontAwesome;
 import jiconfont.swing.IconFontSwing;
 
@@ -24,7 +26,7 @@ public class JanelaLogin extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.getContentPane().setBackground(Color.DARK_GRAY);
-        setarIcones();
+        setarCoresIcones();
     }
 
     /**
@@ -141,8 +143,15 @@ public class JanelaLogin extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 
-    public void setarIcones() { 
-//        jButton1.setIcon(IconFontSwing.buildIcon(FontAwesome.SIGN_IN, 20, new Color(103, 130, 90)));
-        jButton1.setFocusable(false);
+     private void setarCoresIcones() {
+        IconFontSwing.buildIcon(FontAwesome.USER, 20, new Color(255, 153, 0));
+//        setarIcones(jButton1, IconFontSwing.buildIcon(FontAwesome.USER_PLUS, 20, new Color(255, 153, 0)));
+
     }
+    
+    public void setarIcones(JButton jButton, Icon icon) {
+        jButton.setIcon(icon);
+        jButton.setFocusable(false);
+    }
+
 }
