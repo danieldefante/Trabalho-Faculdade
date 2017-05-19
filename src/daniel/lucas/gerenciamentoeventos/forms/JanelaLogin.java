@@ -5,11 +5,9 @@
  */
 package daniel.lucas.gerenciamentoeventos.forms;
 
-import daniel.lucas.gerenciamentoeventos.utils.CorPainelSelecionado;
 import java.awt.Color;
 import javax.swing.Icon;
 import javax.swing.JButton;
-import javax.swing.JTabbedPane;
 import jiconfont.icons.FontAwesome;
 import jiconfont.swing.IconFontSwing;
 
@@ -144,7 +142,6 @@ public class JanelaLogin extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
      private void setarCoresIcones() {
-        IconFontSwing.buildIcon(FontAwesome.USER, 20, new Color(255, 153, 0));
 //        setarIcones(jButton1, IconFontSwing.buildIcon(FontAwesome.USER_PLUS, 20, new Color(255, 153, 0)));
 
     }
