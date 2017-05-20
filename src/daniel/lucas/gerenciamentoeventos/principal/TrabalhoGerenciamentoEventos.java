@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package daniel.lucas.gerenciamentoeventos.controller;
+package daniel.lucas.gerenciamentoeventos.principal;
 
 import daniel.lucas.gerenciamentoeventos.forms.JanelaLogin;
-import daniel.lucas.gerenciamentoeventos.forms.JanelaPrincipal;
 
 
 /**

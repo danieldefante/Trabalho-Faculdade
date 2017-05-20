@@ -5,11 +5,15 @@
  */
 package daniel.lucas.gerenciamentoeventos.forms;
 
+import daniel.lucas.gerenciamentoeventos.controller.ControllerPessoas;
 import daniel.lucas.gerenciamentoeventos.utils.CorPainelSelecionado;
+import daniel.lucas.gerenciamentoeventos.utils.TratamentoFields;
 import java.awt.Color;
 import static java.awt.image.ImageObserver.WIDTH;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -21,7 +25,7 @@ import jiconfont.swing.IconFontSwing;
  *
  * @author aluno
  */
-public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPainelSelecionado{
+public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPainelSelecionado, TratamentoFields {
 
     /**
      * Creates new form JanelaCadastroPessoa
@@ -47,17 +51,17 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
         jTabbedPane5 = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        TFTelefone = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        TFCelular = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         TFNome = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
+        TFSobrenome = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        TFRg = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
+        TFCpf = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jTextField13 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
@@ -94,12 +98,12 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
         });
 
         jLabel7.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel7.setText("CPF:");
+        jLabel7.setText("CPF/CNPJ:*");
 
-        jTextField7.setBackground(new java.awt.Color(51, 51, 51));
-        jTextField7.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField7.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        jTextField7.setCaretColor(null);
+        TFTelefone.setBackground(new java.awt.Color(51, 51, 51));
+        TFTelefone.setForeground(new java.awt.Color(204, 204, 204));
+        TFTelefone.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        TFTelefone.setCaretColor(null);
 
         jLabel8.setForeground(new java.awt.Color(204, 204, 204));
         jLabel8.setText("Telefone:");
@@ -107,39 +111,39 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
         jLabel9.setForeground(new java.awt.Color(204, 204, 204));
         jLabel9.setText("Celular:");
 
-        jTextField8.setBackground(new java.awt.Color(51, 51, 51));
-        jTextField8.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField8.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        jTextField8.setCaretColor(null);
+        TFCelular.setBackground(new java.awt.Color(51, 51, 51));
+        TFCelular.setForeground(new java.awt.Color(204, 204, 204));
+        TFCelular.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        TFCelular.setCaretColor(null);
 
         jLabel10.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel10.setText("Nome:");
+        jLabel10.setText("Nome:*");
 
         TFNome.setBackground(new java.awt.Color(51, 51, 51));
         TFNome.setForeground(new java.awt.Color(204, 204, 204));
         TFNome.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         TFNome.setCaretColor(null);
 
-        jTextField10.setBackground(new java.awt.Color(51, 51, 51));
-        jTextField10.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField10.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        jTextField10.setCaretColor(null);
+        TFSobrenome.setBackground(new java.awt.Color(51, 51, 51));
+        TFSobrenome.setForeground(new java.awt.Color(204, 204, 204));
+        TFSobrenome.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        TFSobrenome.setCaretColor(null);
 
         jLabel11.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel11.setText("Sobrenome:");
+        jLabel11.setText("Sobrenome:*");
 
-        jTextField11.setBackground(new java.awt.Color(51, 51, 51));
-        jTextField11.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField11.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        jTextField11.setCaretColor(null);
+        TFRg.setBackground(new java.awt.Color(51, 51, 51));
+        TFRg.setForeground(new java.awt.Color(204, 204, 204));
+        TFRg.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        TFRg.setCaretColor(null);
 
         jLabel12.setForeground(new java.awt.Color(204, 204, 204));
         jLabel12.setText("RG:");
 
-        jTextField12.setBackground(new java.awt.Color(51, 51, 51));
-        jTextField12.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField12.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        jTextField12.setCaretColor(null);
+        TFCpf.setBackground(new java.awt.Color(51, 51, 51));
+        TFCpf.setForeground(new java.awt.Color(204, 204, 204));
+        TFCpf.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        TFCpf.setCaretColor(null);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -148,35 +152,34 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(TFNome, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 42, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel7))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(171, 171, 171)
-                                .addComponent(jTextField12)))
-                        .addGap(42, 42, 42))
+                    .addComponent(TFSobrenome)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(TFTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addComponent(jTextField8))))
-                .addContainerGap())
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(TFCelular)))
+                    .addComponent(TFNome)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(TFRg, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(TFCpf, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))))
+                .addGap(40, 40, 40))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,28 +191,27 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
                 .addGap(18, 18, 18)
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TFSobrenome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TFRg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TFCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TFTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TFCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(25, 25, 25)))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         jTabbedPane5.addTab("Pessoa", jPanel4);
@@ -340,21 +342,22 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2)
+                        .addGap(15, 15, 15))
                     .addComponent(jTabbedPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTabbedPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2)
+                    .addComponent(jButton1))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pack();
@@ -365,10 +368,42 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//        ControllerCliente controllerCliente = new ControllerCliente();
-        List<Object> p = new ArrayList<>();
-        p.add(TFNome.getText());
+
+        ControllerPessoas controllerPessoas = new ControllerPessoas();
         
+        try {
+            controllerPessoas.pessoas.setNome(popularControllerString(TFNome.getText(), "Nome"));
+            controllerPessoas.pessoas.setSobrenome(popularControllerString(TFSobrenome.getText(), "Sobrenome"));
+            controllerPessoas.pessoas.setCpfCnpj(popularControllerString(TFCpf.getText(), "CPF/CNPJ"));
+            
+        } catch (Exception ex) {
+            Logger.getLogger(JanelaCadastroPessoa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
+        List<String> camposObrigatorios = controllerPessoas.validar();
+     
+        if( camposObrigatorios.isEmpty()){
+            controllerPessoas.insert();
+        }else{
+            String campos = "";
+            for(String a : camposObrigatorios){
+                campos = new StringBuilder()
+                        .append(campos)
+                        .append(a)
+                        .append(", ")
+                        .toString();
+            }
+            
+            String msg;
+            if(camposObrigatorios.size() > 1){
+                msg = "Os campos: "+ campos +" são obrigatórios!";
+            }else{
+                msg = "O campo: "+ campos +" é obrigatório!";
+                
+            }
+            
+            JOptionPane.showMessageDialog(null, msg);
+        }
  
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -419,7 +454,12 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField TFCelular;
+    private javax.swing.JTextField TFCpf;
     private javax.swing.JTextField TFNome;
+    private javax.swing.JTextField TFRg;
+    private javax.swing.JTextField TFSobrenome;
+    private javax.swing.JTextField TFTelefone;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
@@ -436,18 +476,14 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JTabbedPane jTabbedPane5;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
 
+    
     @Override
     public void panelColorSeleciodado(JTabbedPane jTabbedPanel) {
         Color color = new Color(187,187,187);
@@ -480,4 +516,44 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
             this.dispose();
         }
     }
+
+    @Override
+    public int popularControllerInteger(String a, String campo) {
+        int valor = 0;
+        try{
+            valor = Integer.parseInt(a);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "O campo "+ campo +" aceita somente números inteiros!");
+        }
+        return valor;
+    }
+
+    @Override
+    public double popularControllerFloat(String a, String campo) {
+        double valor = 0;
+        try{
+            valor = Double.parseDouble(a);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "O campo "+ campo +" aceita somente números decimais!");
+        }
+        return valor;
+    }
+
+
+    @Override
+    public String popularControllerString(String a, String campo) throws Exception {
+        String valor = null;
+        
+        try{
+            
+            valor = a.equals("") ? null : a;
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "O campo "+ campo +" aceita somente caracteres!");
+        }
+        return valor;
+    }
+
+
+
 }

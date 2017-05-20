@@ -5,26 +5,34 @@
  */
 package daniel.lucas.gerenciamentoeventos.forms;
 
+import daniel.lucas.gerenciamentoeventos.utils.CorPainelSelecionado;
 import java.awt.Color;
 import javax.swing.Icon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JTabbedPane;
+
 import jiconfont.icons.FontAwesome;
 import jiconfont.swing.IconFontSwing;
 
 /**
  *
- * @author daniel
+ * @author aluno
  */
-public class JanelaLogin extends javax.swing.JFrame {
+public class JanelaLogin extends javax.swing.JFrame implements CorPainelSelecionado{
 
     /**
-     * Creates new form JanelaLogin
+     * Creates new form JanelaPrincipal
      */
     public JanelaLogin() {
         initComponents();
+        
         this.setLocationRelativeTo(null);
         this.getContentPane().setBackground(Color.DARK_GRAY);
+        
+        IconFontSwing.register(FontAwesome.getIconFont());
         setarCoresIcones();
+        
     }
 
     /**
@@ -36,51 +44,72 @@ public class JanelaLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
+        btnNovoCliente = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Gerenciamento de Eventos");
 
-        jButton1.setBackground(new java.awt.Color(51, 51, 51));
-        jButton1.setForeground(new java.awt.Color(204, 204, 204));
-        jButton1.setText("Login");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnNovoCliente.setBackground(new java.awt.Color(51, 51, 51));
+        btnNovoCliente.setForeground(new java.awt.Color(204, 204, 204));
+        btnNovoCliente.setText("Entrar");
+        btnNovoCliente.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnNovoCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnNovoClienteActionPerformed(evt);
             }
         });
 
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("Usuario:");
 
+        jTextField1.setBackground(new java.awt.Color(51, 51, 51));
+        jTextField1.setForeground(new java.awt.Color(204, 204, 204));
+        jTextField1.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        jTextField1.setCaretColor(new java.awt.Color(255, 255, 255));
+
+        jTextField2.setBackground(new java.awt.Color(51, 51, 51));
+        jTextField2.setForeground(new java.awt.Color(204, 204, 204));
+        jTextField2.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        jTextField2.setCaretColor(new java.awt.Color(255, 255, 255));
+
         jLabel2.setForeground(new java.awt.Color(204, 204, 204));
         jLabel2.setText("Senha:");
+
+        jLabel3.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(117, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(114, 114, 114))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(163, 163, 163))))
+                    .addComponent(jLabel1)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(btnNovoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(23, 23, 23))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(79, 79, 79)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(116, Short.MAX_VALUE)
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -89,18 +118,18 @@ public class JanelaLogin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addGap(29, 29, 29))
+                .addComponent(btnNovoCliente)
+                .addGap(22, 22, 22))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnNovoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoClienteActionPerformed
         JanelaPrincipal janelaPrincipal = new JanelaPrincipal();
         janelaPrincipal.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnNovoClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -128,6 +157,21 @@ public class JanelaLogin extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(JanelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -137,22 +181,46 @@ public class JanelaLogin extends javax.swing.JFrame {
         });
     }
 
+    
+    JanelaCadastroPessoa janelaCadastroPessoa;
+    JanelaGerenciarEvento janelaGerenciarEvento;
+    JanelaServicos janelaServicos;
+    JanelaRelatorios janelaRelatorios;
+    JanelaLocais janelaLocais;
+    JanelaCadastroEvento janelaCadastroEvento ;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnNovoCliente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 
-     private void setarCoresIcones() {
-//        setarIcones(jButton1, IconFontSwing.buildIcon(FontAwesome.USER_PLUS, 20, new Color(255, 153, 0)));
+    
+    
+    private void setarCoresIcones() {
+        
+        setarIcones(btnNovoCliente, IconFontSwing.buildIcon(FontAwesome.SIGN_IN, 20, new Color(212, 191, 0)));
+        jLabel3.setIcon(IconFontSwing.buildIcon(FontAwesome.USER, 100, new Color(212, 191, 0)));
 
     }
-    
-    public void setarIcones(JButton jButton, Icon icon) {
+
+    @Override
+    public void setarIcones(JButton jButton, Icon icon ) { 
         jButton.setIcon(icon);
         jButton.setFocusable(false);
     }
 
+    @Override
+    public void panelColorSeleciodado(JTabbedPane jTabbedPanel) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void confirmacaoCancelar(String msg) {
+        if(JOptionPane.showConfirmDialog(null, msg, "Confirmação!",WIDTH) == 0){
+            System.exit(0);
+        }
+    }
 }
