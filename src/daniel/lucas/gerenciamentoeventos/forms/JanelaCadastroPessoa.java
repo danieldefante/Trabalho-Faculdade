@@ -70,9 +70,9 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
         jTextField15 = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jTextField16 = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jTextField17 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -250,11 +250,6 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
         jLabel16.setForeground(new java.awt.Color(204, 204, 204));
         jLabel16.setText("Cidade:");
 
-        jTextField16.setBackground(new java.awt.Color(51, 51, 51));
-        jTextField16.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField16.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        jTextField16.setCaretColor(new java.awt.Color(255, 255, 255));
-
         jLabel17.setForeground(new java.awt.Color(204, 204, 204));
         jLabel17.setText("UF:");
 
@@ -262,6 +257,10 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
         jTextField17.setForeground(new java.awt.Color(204, 204, 204));
         jTextField17.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         jTextField17.setCaretColor(new java.awt.Color(255, 255, 255));
+
+        jComboBox1.setBackground(new java.awt.Color(64, 64, 64));
+        jComboBox1.setForeground(new java.awt.Color(204, 204, 204));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SE", "TO", " " }));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -282,11 +281,11 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabel14)
                                 .addGap(0, 15, Short.MAX_VALUE))))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel17))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField17)
                             .addGroup(jPanel5Layout.createSequentialGroup()
@@ -312,15 +311,15 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
                         .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel17)
+                        .addComponent(jLabel16))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel17)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel16)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(98, Short.MAX_VALUE))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         jTabbedPane5.addTab("Endereço", jPanel5);
@@ -462,6 +461,7 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
     private javax.swing.JTextField TFTelefone;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -479,7 +479,6 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
     // End of variables declaration//GEN-END:variables
 
