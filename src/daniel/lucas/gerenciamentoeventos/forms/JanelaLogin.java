@@ -186,7 +186,7 @@ public class JanelaLogin extends javax.swing.JFrame implements CorPainelSelecion
     JanelaGerenciarEvento janelaGerenciarEvento;
     JanelaServicos janelaServicos;
     JanelaRelatorios janelaRelatorios;
-    JanelaLocais janelaLocais;
+    JanelaGerenciadorFornecedores janelaLocais;
     JanelaCadastroEvento janelaCadastroEvento ;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnNovoCliente;

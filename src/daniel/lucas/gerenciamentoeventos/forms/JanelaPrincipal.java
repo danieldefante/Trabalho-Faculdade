@@ -126,7 +126,6 @@ public class JanelaPrincipal extends javax.swing.JFrame implements CorPainelSele
             }
         });
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/daniel/lucas/gerenciamentoeventos/sql/img.jpg"))); // NOI18N
         jButton3.setBorder(null);
         jButton3.setFocusPainted(false);
 
@@ -224,7 +223,7 @@ public class JanelaPrincipal extends javax.swing.JFrame implements CorPainelSele
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         if(janelaLocais == null ){
-            janelaLocais = new JanelaLocais();
+            janelaLocais = new JanelaGerenciadorFornecedores();
             janelaLocais.setVisible(true);
         }else {
             janelaLocais.setVisible(true);
@@ -278,7 +277,7 @@ public class JanelaPrincipal extends javax.swing.JFrame implements CorPainelSele
     JanelaGerenciarEvento janelaGerenciarEvento;
     JanelaServicos janelaServicos;
     JanelaRelatorios janelaRelatorios;
-    JanelaLocais janelaLocais;
+    JanelaGerenciadorFornecedores janelaLocais;
     JanelaCadastroEvento janelaCadastroEvento ;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnNovoCliente;
