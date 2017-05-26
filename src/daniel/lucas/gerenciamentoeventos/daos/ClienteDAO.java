@@ -15,25 +15,23 @@ import daniel.lucas.gerenciamentoeventos.utils.GenericCrud;
 public class ClienteDAO  extends GenericCrud<Pessoas>{
 
     @Override
-    public void insert(Pessoas entity) {
+    public boolean insert(Pessoas entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void update(Pessoas entity) {
+    public boolean update(Pessoas entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void delete(Pessoas entity) {
+    public boolean delete(Pessoas entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void find(Pessoas entity) {
+    public Pessoas find(Pessoas entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-
 
 }

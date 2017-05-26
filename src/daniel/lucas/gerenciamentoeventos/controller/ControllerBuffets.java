@@ -16,23 +16,24 @@ import daniel.lucas.gerenciamentoeventos.utils.GenericCrud;
 public class ControllerBuffets extends GenericCrud<Buffets> {
 
     @Override
-    public void insert(Buffets entity) {
+    public boolean insert(Buffets entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void update(Buffets entity) {
+    public boolean update(Buffets entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void delete(Buffets entity) {
+    public boolean delete(Buffets entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void find(Buffets entity) {
+    public Buffets find(Buffets entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
+ 
 }

@@ -5,6 +5,8 @@
  */
 package daniel.lucas.gerenciamentoeventos.controller;
 
+import daniel.lucas.gerenciamentoeventos.daos.PessoasDAO;
+import daniel.lucas.gerenciamentoeventos.entities.Enderecos;
 import daniel.lucas.gerenciamentoeventos.entities.Pessoas;
 import daniel.lucas.gerenciamentoeventos.validador.Validador;
 import java.util.ArrayList;
@@ -17,14 +19,22 @@ import java.util.List;
 public class ControllerPessoas implements ControllerGeneric<Pessoas> {
 
     public Pessoas pessoas = new Pessoas();
+    public Enderecos enderecos = new Enderecos();
     
     public Validador validador = new Validador();
     
     @Override
-    public void insert() {
+    public boolean insert() {
         
-        System.out.print("inserir");
+//        //esta assim
+//        PessoasDAO pessoasDAO = new PessoasDAO();
+//        pessoasDAO.insert(pessoas);
+//        
         
+        //quero assim
+        PessoasDAO.metodoStatic(pessoas);
+        
+        return true;
     }
 
     @Override

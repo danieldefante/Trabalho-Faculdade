@@ -382,7 +382,11 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
         List<String> camposObrigatorios = controllerPessoas.validar();
      
         if( camposObrigatorios.isEmpty()){
-            controllerPessoas.insert();
+            if(controllerPessoas.insert()){
+                JOptionPane.showMessageDialog(null, "Colaborador cadastrado com sucesso!");
+            }else{
+                JOptionPane.showMessageDialog(null, "Erro ao cadastrar o colaborador!");
+            }
         }else{
             String campos = "";
             for(String a : camposObrigatorios){

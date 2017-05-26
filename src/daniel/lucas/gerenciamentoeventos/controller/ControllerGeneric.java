@@ -16,7 +16,7 @@ public interface ControllerGeneric<T> {
 
     public List<String> validar();
     
-    public void insert();
+    public boolean insert();
 
     public T update();
 
