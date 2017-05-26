@@ -11,11 +11,11 @@ package daniel.lucas.gerenciamentoeventos.utils;
  */
 public abstract class GenericCrud<T> {
     
-    public abstract void insert(T entity);
+    public abstract boolean insert(T entity);
     
-    public abstract void update(T entity);
+    public abstract boolean update(T entity);
     
-    public abstract void delete(T entity);
+    public abstract boolean delete(T entity);
     
-    public abstract void find(T entity);
+    public abstract T find(T entity);
 }

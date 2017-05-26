@@ -15,26 +15,24 @@ import daniel.lucas.gerenciamentoeventos.utils.GenericCrud;
  */
 public class ControllerEndereco extends GenericCrud<Enderecos>{
 
-    private FactoryGeneric factory = new FactoryGeneric();
-
     @Override
-    public void insert(Enderecos entity) {
+    public boolean insert(Enderecos entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void update(Enderecos entity) {
+    public boolean update(Enderecos entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void delete(Enderecos entity) {
+    public boolean delete(Enderecos entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void find(Enderecos entity) {
+    public Enderecos find(Enderecos entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

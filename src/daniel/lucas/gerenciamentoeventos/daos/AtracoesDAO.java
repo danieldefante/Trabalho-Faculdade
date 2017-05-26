@@ -15,25 +15,26 @@ import daniel.lucas.gerenciamentoeventos.utils.GenericCrud;
 public class AtracoesDAO extends GenericCrud<Atracoes>{
 
     @Override
-    public void insert(Atracoes entity) {
+    public boolean insert(Atracoes entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void update(Atracoes entity) {
+    public boolean update(Atracoes entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void delete(Atracoes entity) {
+    public boolean delete(Atracoes entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void find(Atracoes entity) {
+    public Atracoes find(Atracoes entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    
    
 }
 

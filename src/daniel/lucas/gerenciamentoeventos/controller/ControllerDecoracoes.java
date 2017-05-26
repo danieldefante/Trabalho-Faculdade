@@ -15,23 +15,23 @@ import daniel.lucas.gerenciamentoeventos.utils.GenericCrud;
 public class ControllerDecoracoes extends GenericCrud<Decoracoes> {
 
     @Override
-    public void insert(Decoracoes entity) {
+    public boolean insert(Decoracoes entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void update(Decoracoes entity) {
+    public boolean update(Decoracoes entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void delete(Decoracoes entity) {
+    public boolean delete(Decoracoes entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void find(Decoracoes entity) {
+    public Decoracoes find(Decoracoes entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

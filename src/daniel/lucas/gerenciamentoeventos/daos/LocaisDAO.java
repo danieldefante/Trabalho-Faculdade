@@ -15,23 +15,24 @@ import daniel.lucas.gerenciamentoeventos.utils.GenericCrud;
 public class LocaisDAO extends GenericCrud<Locais> {
 
     @Override
-    public void insert(Locais entity) {
+    public boolean insert(Locais entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void update(Locais entity) {
+    public boolean update(Locais entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void delete(Locais entity) {
+    public boolean delete(Locais entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void find(Locais entity) {
+    public Locais find(Locais entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
+   
 }
