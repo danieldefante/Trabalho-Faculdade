@@ -5,6 +5,7 @@
  */
 package daniel.lucas.gerenciamentoeventos.forms;
 
+import daniel.lucas.gerenciamentoeventos.controller.ControllerContatos;
 import daniel.lucas.gerenciamentoeventos.controller.ControllerEndereco;
 import daniel.lucas.gerenciamentoeventos.controller.ControllerPessoas;
 import daniel.lucas.gerenciamentoeventos.utils.CorPainelSelecionado;
@@ -71,6 +72,7 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
         jLabel17 = new javax.swing.JLabel();
         jTextField17 = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jPanel1 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -209,7 +211,7 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addGap(25, 25, 25)))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane5.addTab("Pessoa", jPanel4);
@@ -278,7 +280,7 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
                             .addComponent(jTextField14)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabel14)
-                                .addGap(0, 15, Short.MAX_VALUE))))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -307,7 +309,6 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
                             .addComponent(jLabel14))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel17)
@@ -321,6 +322,19 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
         );
 
         jTabbedPane5.addTab("Endereço", jPanel5);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 403, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 260, Short.MAX_VALUE)
+        );
+
+        jTabbedPane5.addTab("Contato", jPanel1);
 
         jButton2.setBackground(new java.awt.Color(51, 51, 51));
         jButton2.setForeground(new java.awt.Color(204, 204, 204));
@@ -366,14 +380,22 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
  
+        controllerEndereco = new ControllerEndereco();
+        controllerContatos = new ControllerContatos();
+        controllerPessoas = new ControllerPessoas();
+        
+        popularEndereco(controllerEndereco);
+        popularContatos(controllerContatos);
         popularPessoa(controllerPessoas);
-
+        
+        String inserirEndereco = controllerEndereco.insert();
+        String inserirContatos = controllerContatos.insert();
         String inserirPessoa = controllerPessoas.insert();
         
-        if(inserirPessoa.equals("success")){
+        if(inserirPessoa.equals("success") && inserirEndereco.equals("success") && inserirContatos.equals("success")){
             success("Colaborador cadastrado com sucesso!");
-        }else if(inserirPessoa.equals("invalid")){
-            camposObrigatorios(inserirPessoa);
+        }else if(inserirEndereco.equals("invalid") || inserirPessoa.equals("invalid") || inserirContatos.equals("invalid")){
+            camposObrigatorios(inserirEndereco + inserirPessoa);
         }else{
             error("Erro ao cadastrar o colaborador!");
         } 
@@ -382,6 +404,14 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void popularEndereco(ControllerEndereco controllerEndereco) {
+        
+    }
+
+    private void popularContatos(ControllerContatos controllerContatos) {
+        
+    }
+    
     private void popularPessoa(ControllerPessoas controllerPessoas) {
         controllerPessoas.pessoas.setNome(popularControllerString(TFNome.getText(), "Nome"));
         controllerPessoas.pessoas.setSobrenome(popularControllerString(TFSobrenome.getText(), "Sobrenome"));
@@ -389,6 +419,7 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
         controllerPessoas.pessoas.setRg(popularControllerString(TFCelular.getText(), "Celular"));
         controllerPessoas.pessoas.setCpfCnpj(popularControllerString(TFTelefone.getText(), "Telefone"));
     }
+   
 
     private void jPanel5ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel5ComponentShown
         panelColorSeleciodado(jTabbedPane5);
@@ -457,6 +488,7 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JTabbedPane jTabbedPane5;
@@ -465,7 +497,9 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField17;
     // End of variables declaration//GEN-END:variables
-    private static final ControllerPessoas controllerPessoas = new ControllerPessoas();
+    private static ControllerEndereco controllerEndereco;
+    private static ControllerContatos controllerContatos;
+    private static ControllerPessoas controllerPessoas;
     
     @Override
     public void panelColorSeleciodado(JTabbedPane jTabbedPanel) {
