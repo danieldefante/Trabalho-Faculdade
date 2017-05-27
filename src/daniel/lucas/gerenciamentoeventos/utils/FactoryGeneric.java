@@ -6,7 +6,9 @@
 package daniel.lucas.gerenciamentoeventos.utils;
 
 import static daniel.lucas.gerenciamentoeventos.utils.HibernateUtil.getSessionFactory;
-
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 /**
  *

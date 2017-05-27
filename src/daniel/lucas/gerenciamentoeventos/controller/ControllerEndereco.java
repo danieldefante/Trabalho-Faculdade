@@ -6,6 +6,7 @@
 package daniel.lucas.gerenciamentoeventos.controller;
 
 import daniel.lucas.gerenciamentoeventos.entities.Enderecos;
+import static daniel.lucas.gerenciamentoeventos.validador.ValidadorEndereco.validar;
 import java.util.List;
 
 /**
@@ -18,7 +19,7 @@ public class ControllerEndereco implements Controller<Enderecos>{
     
     @Override
     public String insert() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return validar(enderecos);
     }
 
     @Override

@@ -7,8 +7,8 @@ package daniel.lucas.gerenciamentoeventos.controller;
 
 import daniel.lucas.gerenciamentoeventos.entities.Enderecos;
 import daniel.lucas.gerenciamentoeventos.entities.Pessoas;
-import static daniel.lucas.gerenciamentoeventos.utils.ValidadorPessoa.validarEntidade;
 import java.util.List;
+import static daniel.lucas.gerenciamentoeventos.validador.ValidadorPessoa.validar;
 
 /**
  *
@@ -16,19 +16,16 @@ import java.util.List;
  */
 public class ControllerPessoas implements Controller<Pessoas> {
 
-    public Pessoas pessoas;// = new Pessoas();
-    public Enderecos enderecos;// = new Enderecos();
+    public Pessoas pessoas;
 
     public ControllerPessoas() {
-        
         this.pessoas = new Pessoas();
-        this.enderecos = new Enderecos();
     }
     
     @Override
     public String insert() {
         
-        return validarEntidade(pessoas);
+        return validar(pessoas);
     }
 
     @Override
