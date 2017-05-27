@@ -6,31 +6,36 @@
 package daniel.lucas.gerenciamentoeventos.controller;
 
 import daniel.lucas.gerenciamentoeventos.entities.EventosDecoracoes;
-import daniel.lucas.gerenciamentoeventos.utils.GenericCrud;
+import java.util.List;
 
 /**
  *
  * @author daniel
  */
-public class ControllerEventosDecoracoes extends GenericCrud<EventosDecoracoes> {
+public class ControllerEventosDecoracoes implements Controller<EventosDecoracoes> {
 
     @Override
-    public boolean insert(EventosDecoracoes entity) {
+    public String insert() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean update(EventosDecoracoes entity) {
+    public EventosDecoracoes update() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean delete(EventosDecoracoes entity) {
+    public EventosDecoracoes delete() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public EventosDecoracoes find(EventosDecoracoes entity) {
+    public EventosDecoracoes find() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<EventosDecoracoes> findAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
