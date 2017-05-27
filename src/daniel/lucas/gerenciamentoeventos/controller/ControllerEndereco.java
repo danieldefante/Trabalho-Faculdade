@@ -6,33 +6,40 @@
 package daniel.lucas.gerenciamentoeventos.controller;
 
 import daniel.lucas.gerenciamentoeventos.entities.Enderecos;
-import daniel.lucas.gerenciamentoeventos.utils.FactoryGeneric;
-import daniel.lucas.gerenciamentoeventos.utils.GenericCrud;
+import java.util.List;
 
 /**
  *
  * @author daniel
  */
-public class ControllerEndereco extends GenericCrud<Enderecos>{
+public class ControllerEndereco implements Controller<Enderecos>{
 
+    public Enderecos enderecos;
+    
     @Override
-    public boolean insert(Enderecos entity) {
+    public String insert() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean update(Enderecos entity) {
+    public Enderecos update() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean delete(Enderecos entity) {
+    public Enderecos delete() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Enderecos find(Enderecos entity) {
+    public Enderecos find() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public List<Enderecos> findAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
 }

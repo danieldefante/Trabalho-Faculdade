@@ -5,33 +5,39 @@
  */
 package daniel.lucas.gerenciamentoeventos.controller;
 
-import daniel.lucas.gerenciamentoeventos.entities.Locais;
-import daniel.lucas.gerenciamentoeventos.utils.GenericCrud;
+import java.util.List;
 
 /**
  *
  * @author daniel
  */
-public class ControllerLocais extends GenericCrud<Locais> {
+public class ControllerLocais implements Controller {
 
     @Override
-    public boolean insert(Locais entity) {
+    public String insert() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean update(Locais entity) {
+    public Object update() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean delete(Locais entity) {
+    public Object delete() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Locais find(Locais entity) {
+    public Object find() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public List findAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+  
 
 }

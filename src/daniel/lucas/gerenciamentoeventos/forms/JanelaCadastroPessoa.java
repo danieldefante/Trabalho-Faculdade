@@ -5,15 +5,13 @@
  */
 package daniel.lucas.gerenciamentoeventos.forms;
 
+import daniel.lucas.gerenciamentoeventos.controller.ControllerEndereco;
 import daniel.lucas.gerenciamentoeventos.controller.ControllerPessoas;
 import daniel.lucas.gerenciamentoeventos.utils.CorPainelSelecionado;
+import static daniel.lucas.gerenciamentoeventos.utils.Messagens.*;
 import daniel.lucas.gerenciamentoeventos.utils.TratamentoFields;
 import java.awt.Color;
 import static java.awt.image.ImageObserver.WIDTH;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -367,48 +365,30 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        ControllerPessoas controllerPessoas = new ControllerPessoas();
-        
-        try {
-            controllerPessoas.pessoas.setNome(popularControllerString(TFNome.getText(), "Nome"));
-            controllerPessoas.pessoas.setSobrenome(popularControllerString(TFSobrenome.getText(), "Sobrenome"));
-            controllerPessoas.pessoas.setCpfCnpj(popularControllerString(TFCpf.getText(), "CPF/CNPJ"));
-            
-        } catch (Exception ex) {
-            Logger.getLogger(JanelaCadastroPessoa.class.getName()).log(Level.SEVERE, null, ex);
-        }
-      
-        List<String> camposObrigatorios = controllerPessoas.validar();
-     
-        if( camposObrigatorios.isEmpty()){
-            if(controllerPessoas.insert()){
-                JOptionPane.showMessageDialog(null, "Colaborador cadastrado com sucesso!");
-            }else{
-                JOptionPane.showMessageDialog(null, "Erro ao cadastrar o colaborador!");
-            }
-        }else{
-            String campos = "";
-            for(String a : camposObrigatorios){
-                campos = new StringBuilder()
-                        .append(campos)
-                        .append(a)
-                        .append(", ")
-                        .toString();
-            }
-            
-            String msg;
-            if(camposObrigatorios.size() > 1){
-                msg = "Os campos: "+ campos +" são obrigatórios!";
-            }else{
-                msg = "O campo: "+ campos +" é obrigatório!";
-                
-            }
-            
-            JOptionPane.showMessageDialog(null, msg);
-        }
  
+        popularPessoa(controllerPessoas);
+
+        String inserirPessoa = controllerPessoas.insert();
+        
+        if(inserirPessoa.equals("success")){
+            success("Colaborador cadastrado com sucesso!");
+        }else if(inserirPessoa.equals("invalid")){
+            camposObrigatorios(inserirPessoa);
+        }else{
+            error("Erro ao cadastrar o colaborador!");
+        } 
+ 
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void popularPessoa(ControllerPessoas controllerPessoas) {
+        controllerPessoas.pessoas.setNome(popularControllerString(TFNome.getText(), "Nome"));
+        controllerPessoas.pessoas.setSobrenome(popularControllerString(TFSobrenome.getText(), "Sobrenome"));
+        controllerPessoas.pessoas.setCpfCnpj(popularControllerString(TFCpf.getText(), "CPF/CNPJ"));
+        controllerPessoas.pessoas.setRg(popularControllerString(TFCelular.getText(), "Celular"));
+        controllerPessoas.pessoas.setCpfCnpj(popularControllerString(TFTelefone.getText(), "Telefone"));
+    }
 
     private void jPanel5ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel5ComponentShown
         panelColorSeleciodado(jTabbedPane5);
@@ -485,7 +465,7 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField17;
     // End of variables declaration//GEN-END:variables
-
+    private static final ControllerPessoas controllerPessoas = new ControllerPessoas();
     
     @Override
     public void panelColorSeleciodado(JTabbedPane jTabbedPanel) {
@@ -520,7 +500,7 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
         }
     }
 
-    @Override
+     @Override
     public int popularControllerInteger(String a, String campo) {
         int valor = 0;
         try{
@@ -544,10 +524,10 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
 
 
     @Override
-    public String popularControllerString(String a, String campo) throws Exception {
+    public String popularControllerString(String a, String campo){
         String valor = null;
         
-        try{
+        try{   
             
             valor = a.equals("") ? null : a;
             

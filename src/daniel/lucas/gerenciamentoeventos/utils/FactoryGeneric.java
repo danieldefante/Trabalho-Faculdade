@@ -5,9 +5,8 @@
  */
 package daniel.lucas.gerenciamentoeventos.utils;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import static daniel.lucas.gerenciamentoeventos.utils.HibernateUtil.getSessionFactory;
+
 
 /**
  *
@@ -16,20 +15,30 @@ import org.hibernate.Transaction;
 public class FactoryGeneric<T> {
 
     
-    public void insert(T entity) {
+    public String insert(T entity) {
         
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        
-        
+        SessionFactory sessionFactory = getSessionFactory();
         Session session = sessionFactory.openSession();
-       
-        Transaction transaction = session.beginTransaction();
+        try {
+            
+            Transaction transaction = session.beginTransaction();
+
+            session.merge(entity);
+      
+            transaction.commit();
+            return "success";
+        } catch (Exception e) {
+            
+            if(session.getTransaction() != null){
+                session.getTransaction().rollback();
+                System.out.println(e.getMessage());
+            }
+            return "error";
+        }finally{
+            session.clear();
+            session.close();
+        }
         
-        session.save(entity);
-    
-        transaction.commit();
-        session.flush();
-        session.clear();
     }
     
 }

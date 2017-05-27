@@ -1,31 +1,35 @@
 package daniel.lucas.gerenciamentoeventos.controller;
 
-import daniel.lucas.gerenciamentoeventos.entities.Atracoes;
-import daniel.lucas.gerenciamentoeventos.utils.GenericCrud;
+import java.util.List;
 
 /**
  *
  * @author daniel
  */
-public class ControllerAtracoes extends GenericCrud<Atracoes>{
+public class ControllerAtracoes implements Controller{
 
     @Override
-    public boolean insert(Atracoes entity) {
+    public String insert() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean update(Atracoes entity) {
+    public Object update() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean delete(Atracoes entity) {
+    public Object delete() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Atracoes find(Atracoes entity) {
+    public Object find() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List findAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

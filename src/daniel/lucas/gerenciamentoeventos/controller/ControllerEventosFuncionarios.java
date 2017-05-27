@@ -6,34 +6,38 @@
 package daniel.lucas.gerenciamentoeventos.controller;
 
 import daniel.lucas.gerenciamentoeventos.entities.EventosFuncionarios;
-import daniel.lucas.gerenciamentoeventos.utils.GenericCrud;
+import java.util.List;
 
 /**
  *
  * @author daniel
  */
-public class ControllerEventosFuncionarios  extends GenericCrud<EventosFuncionarios> {
+public class ControllerEventosFuncionarios  implements Controller<EventosFuncionarios> {
 
     @Override
-    public boolean insert(EventosFuncionarios entity) {
+    public String insert() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean update(EventosFuncionarios entity) {
+    public EventosFuncionarios update() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean delete(EventosFuncionarios entity) {
+    public EventosFuncionarios delete() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public EventosFuncionarios find(EventosFuncionarios entity) {
+    public EventosFuncionarios find() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-   
+    @Override
+    public List<EventosFuncionarios> findAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
    
 }

@@ -13,12 +13,12 @@ import java.util.List;
  *
  * @author daniel
  */
-public class Validador {
+public class Validador{
 
-    private List<String> retorno = new ArrayList();
-    private int i = 0;
+    private static List<String> retorno = new ArrayList();
+    private static int i = 0;
     
-    public List<String> validarCamposNulls(List<String> nomeCampos, Object... campos){
+    public static List<String> validarCamposNulls(List<String> nomeCampos, Object... campos){
 
         List<Object> lista = Arrays.asList(campos);
 

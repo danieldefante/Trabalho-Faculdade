@@ -1,5 +1,5 @@
 package daniel.lucas.gerenciamentoeventos.entities;
-// Generated May 18, 2017 8:46:06 PM by Hibernate Tools 4.3.1
+// Generated May 26, 2017 4:50:29 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
