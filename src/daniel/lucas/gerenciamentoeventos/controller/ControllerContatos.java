@@ -14,9 +14,15 @@ import java.util.List;
  */
 public class ControllerContatos implements Controller<Contatos>{
 
+    public Contatos contatos;
+    
+    public ControllerContatos() {
+        this.contatos = new Contatos();
+    }
+    
     @Override
     public String insert() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;//validar(contatos);
     }
 
     @Override

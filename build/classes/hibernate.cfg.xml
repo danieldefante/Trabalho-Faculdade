@@ -51,7 +51,6 @@ Contributor(s):
     <mapping class="daniel.lucas.gerenciamentoeventos.entities.Decoracoes"/>
     <mapping class="daniel.lucas.gerenciamentoeventos.entities.Eventos"/>
     <mapping class="daniel.lucas.gerenciamentoeventos.entities.Pessoas"/>
-    <mapping class="daniel.lucas.gerenciamentoeventos.entities.Teste"/>
     <mapping class="daniel.lucas.gerenciamentoeventos.entities.Locais"/>
     <mapping class="daniel.lucas.gerenciamentoeventos.entities.Buffets"/>
     <mapping class="daniel.lucas.gerenciamentoeventos.entities.EventosFuncionarios"/>

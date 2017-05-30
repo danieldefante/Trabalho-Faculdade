@@ -6,7 +6,7 @@
 package daniel.lucas.gerenciamentoeventos.controller;
 
 import daniel.lucas.gerenciamentoeventos.entities.Enderecos;
-import static daniel.lucas.gerenciamentoeventos.validador.ValidadorEndereco.validar;
+//import static daniel.lucas.gerenciamentoeventos.validador.ValidadorEndereco.validar;
 import java.util.List;
 
 /**
@@ -16,10 +16,17 @@ import java.util.List;
 public class ControllerEndereco implements Controller<Enderecos>{
 
     public Enderecos enderecos;
+
+    public ControllerEndereco() {
+        this.enderecos = new Enderecos();
+    }
+    
+    
     
     @Override
     public String insert() {
-        return validar(enderecos);
+//        return validar(enderecos);
+        return null;
     }
 
     @Override

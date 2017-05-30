@@ -5,10 +5,11 @@
  */
 package daniel.lucas.gerenciamentoeventos.controller;
 
+import daniel.lucas.gerenciamentoeventos.entities.Contatos;
 import daniel.lucas.gerenciamentoeventos.entities.Enderecos;
 import daniel.lucas.gerenciamentoeventos.entities.Pessoas;
+import daniel.lucas.gerenciamentoeventos.utils.FactoryGeneric;
 import java.util.List;
-import static daniel.lucas.gerenciamentoeventos.validador.ValidadorPessoa.validar;
 
 /**
  *
@@ -17,15 +18,26 @@ import static daniel.lucas.gerenciamentoeventos.validador.ValidadorPessoa.valida
 public class ControllerPessoas implements Controller<Pessoas> {
 
     public Pessoas pessoas;
+    
+    public Enderecos enderecos;
+    
+    public Contatos contatos;
 
     public ControllerPessoas() {
         this.pessoas = new Pessoas();
+        this.enderecos = new Enderecos();
+        this.contatos = new Contatos();
     }
     
     @Override
     public String insert() {
         
-        return validar(pessoas);
+        FactoryGeneric factoryGeneric = new FactoryGeneric();
+        
+        pessoas.setContatos(contatos);
+        pessoas.setEnderecos(enderecos);
+        
+        return factoryGeneric.insertDB(contatos, enderecos, pessoas);
     }
 
     @Override

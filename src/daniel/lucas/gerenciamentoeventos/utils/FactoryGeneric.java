@@ -5,19 +5,22 @@
  */
 package daniel.lucas.gerenciamentoeventos.utils;
 
+
 import static daniel.lucas.gerenciamentoeventos.utils.HibernateUtil.getSessionFactory;
+import java.util.Arrays;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+
 
 /**
  *
  * @author daniel
  */
-public class FactoryGeneric<T> {
+public class FactoryGeneric <T> {
 
     
-    public String insert(T entity) {
+    public String insertDB(T... entitys) {
         
         SessionFactory sessionFactory = getSessionFactory();
         Session session = sessionFactory.openSession();
@@ -25,7 +28,10 @@ public class FactoryGeneric<T> {
             
             Transaction transaction = session.beginTransaction();
 
-            session.merge(entity);
+            for(T entity : entitys){
+                
+                session.save(entity);
+            }
       
             transaction.commit();
             return "success";
@@ -40,7 +46,6 @@ public class FactoryGeneric<T> {
             session.clear();
             session.close();
         }
-        
     }
     
 }
