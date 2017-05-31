@@ -79,6 +79,16 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
         TFSobrenome = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         TFRg = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter rg = new javax.swing.text.MaskFormatter("###.###.###-#");
+
+            TFRg = new javax.swing.JFormattedTextField(rg);
+            TFRg.setBackground(new java.awt.Color(51, 51, 51));
+            TFRg.setForeground(new java.awt.Color(204, 204, 204));
+            TFRg.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+            TFRg.setCaretColor(null);
+        }catch(Exception e){
+        }
         jLabel12 = new javax.swing.JLabel();
         TFCpf = new javax.swing.JTextField();
         try{
@@ -111,10 +121,15 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
         CBUf = new javax.swing.JComboBox<>();
         TFCep = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        TFFuncao = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        TFSalario = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Nova Pessoa");
+        setTitle("Novo Colaborador");
 
         jButton1.setBackground(new java.awt.Color(51, 51, 51));
         jButton1.setForeground(new java.awt.Color(204, 204, 204));
@@ -274,7 +289,6 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addGap(25, 25, 25)))
-                .addGap(18, 18, 18)
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TFWhatsApp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -333,6 +347,7 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
         CBUf.setBackground(new java.awt.Color(64, 64, 64));
         CBUf.setForeground(new java.awt.Color(204, 204, 204));
         CBUf.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SE", "TO", " " }));
+        CBUf.setSelectedIndex(26);
 
         TFCep.setBackground(new java.awt.Color(51, 51, 51));
         TFCep.setForeground(new java.awt.Color(204, 204, 204));
@@ -412,6 +427,61 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
 
         jTabbedPane5.addTab("Endereço", jPanel5);
 
+        jPanel6.setBackground(new java.awt.Color(64, 64, 64));
+        jPanel6.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jPanel6ComponentShown(evt);
+            }
+        });
+
+        TFFuncao.setBackground(new java.awt.Color(51, 51, 51));
+        TFFuncao.setForeground(new java.awt.Color(204, 204, 204));
+        TFFuncao.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        TFFuncao.setCaretColor(new java.awt.Color(255, 255, 255));
+
+        jLabel20.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel20.setText("Função:");
+
+        TFSalario.setBackground(new java.awt.Color(51, 51, 51));
+        TFSalario.setForeground(new java.awt.Color(204, 204, 204));
+        TFSalario.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        TFSalario.setCaretColor(new java.awt.Color(255, 255, 255));
+
+        jLabel22.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel22.setText("Salario:");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TFFuncao)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel20)
+                            .addComponent(TFSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 286, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TFFuncao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TFSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(191, Short.MAX_VALUE))
+        );
+
+        jTabbedPane5.addTab("Função", jPanel6);
+
         jButton2.setBackground(new java.awt.Color(51, 51, 51));
         jButton2.setForeground(new java.awt.Color(204, 204, 204));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -451,7 +521,7 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        confirmacaoCancelar("Deseja realmente fechar o cadastro de cliente?");
+        confirmacaoCancelar();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -552,6 +622,10 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
 
     }//GEN-LAST:event_TFNumeroKeyTyped
 
+    private void jPanel6ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel6ComponentShown
+        panelColorSeleciodado(jTabbedPane5);
+    }//GEN-LAST:event_jPanel6ComponentShown
+
     /**
      * @param args the command line arguments
      */
@@ -597,10 +671,12 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
     private javax.swing.JTextField TFCep;
     private javax.swing.JTextField TFCidade;
     private javax.swing.JTextField TFCpf;
+    private javax.swing.JTextField TFFuncao;
     private javax.swing.JTextField TFNome;
     private javax.swing.JTextField TFNumero;
     private javax.swing.JTextField TFRg;
     private javax.swing.JTextField TFRua;
+    private javax.swing.JTextField TFSalario;
     private javax.swing.JTextField TFSobrenome;
     private javax.swing.JTextField TFTelefone;
     private javax.swing.JTextField TFWhatsApp;
@@ -616,11 +692,14 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JTabbedPane jTabbedPane5;
     // End of variables declaration//GEN-END:variables
 //    ControllerEndereco controllerEndereco;
@@ -653,8 +732,10 @@ public class JanelaCadastroPessoa extends javax.swing.JFrame implements CorPaine
     }
 
     @Override
-    public void confirmacaoCancelar(String msg) {
-        if(JOptionPane.showConfirmDialog(null, msg, "Confirmação!",WIDTH) == 0){
+    public void confirmacaoCancelar() {
+        String[] buttons = { "Sim", "Não", "Cancelar" };
+        if(JOptionPane.showOptionDialog(null, "Deseja realmente sair?", "Confirmação",
+        JOptionPane.WARNING_MESSAGE, 0, null, buttons, buttons[1]) == 1){
             this.dispose();
         }
     }

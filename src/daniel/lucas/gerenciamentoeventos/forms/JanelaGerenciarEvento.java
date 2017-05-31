@@ -72,6 +72,11 @@ public class JanelaGerenciarEvento extends javax.swing.JFrame implements CorPain
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Gerenciar Evento");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("Evento:");
@@ -428,7 +433,7 @@ public class JanelaGerenciarEvento extends javax.swing.JFrame implements CorPain
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        confirmacaoCancelar("Deseja realmente fechar o gerenciamento de eventos?");
+        confirmacaoCancelar();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jPanel1ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel1ComponentShown
@@ -454,6 +459,10 @@ public class JanelaGerenciarEvento extends javax.swing.JFrame implements CorPain
     private void jPanel8ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel8ComponentShown
         panelColorSeleciodado(jTabbedPane1);
     }//GEN-LAST:event_jPanel8ComponentShown
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        confirmacaoCancelar();
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
@@ -556,8 +565,10 @@ public class JanelaGerenciarEvento extends javax.swing.JFrame implements CorPain
     }
 
     @Override
-    public void confirmacaoCancelar(String msg) {
-        if(JOptionPane.showConfirmDialog(null, msg, "Confirmação!",WIDTH) == 0){
+    public void confirmacaoCancelar() {
+        String[] buttons = { "Sim", "Não", "Cancelar" };
+        if(JOptionPane.showOptionDialog(null, "Deseja realmente sair?", "Confirmação",
+        JOptionPane.WARNING_MESSAGE, 0, null, buttons, buttons[1]) == 0){
             this.dispose();
         }
     }

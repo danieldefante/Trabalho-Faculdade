@@ -20,6 +20,6 @@ public interface CorPainelSelecionado {
     
     public void setarIcones(JButton jButton, Icon icon ) ;
     
-    public void confirmacaoCancelar(String msg) ;
+    public void confirmacaoCancelar() ;
     
 }

@@ -55,6 +55,11 @@ public class JanelaPrincipal extends javax.swing.JFrame implements CorPainelSele
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gerenciamento de Eventos");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jButton1.setBackground(new java.awt.Color(51, 51, 51));
         jButton1.setForeground(new java.awt.Color(204, 204, 204));
@@ -78,7 +83,7 @@ public class JanelaPrincipal extends javax.swing.JFrame implements CorPainelSele
 
         btnNovoCliente.setBackground(new java.awt.Color(51, 51, 51));
         btnNovoCliente.setForeground(new java.awt.Color(204, 204, 204));
-        btnNovoCliente.setText("Novo Cliente");
+        btnNovoCliente.setText("Novo Colaborador");
         btnNovoCliente.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnNovoCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -231,8 +236,12 @@ public class JanelaPrincipal extends javax.swing.JFrame implements CorPainelSele
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        confirmacaoCancelar("Deseja realmente sair?");
+        confirmacaoCancelar();
     }//GEN-LAST:event_btnSairActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+//        confirmacaoCancelar();
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
@@ -316,9 +325,11 @@ public class JanelaPrincipal extends javax.swing.JFrame implements CorPainelSele
     }
 
     @Override
-    public void confirmacaoCancelar(String msg) {
-        if(JOptionPane.showConfirmDialog(null, msg, "Confirmação!",WIDTH) == 0){
-            System.exit(0);
+    public void confirmacaoCancelar() {
+        String[] buttons = { "Sim", "Não", "Cancelar" };
+        if(JOptionPane.showOptionDialog(null, "Deseja realmente sair?", "Confirmação",
+        JOptionPane.WARNING_MESSAGE, 0, null, buttons, buttons[1]) == 0){
+            this.dispose();
         }
     }
 }

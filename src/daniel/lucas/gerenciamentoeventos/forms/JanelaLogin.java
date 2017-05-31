@@ -53,6 +53,11 @@ public class JanelaLogin extends javax.swing.JFrame implements CorPainelSelecion
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gerenciamento de Eventos");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         btnNovoCliente.setBackground(new java.awt.Color(51, 51, 51));
         btnNovoCliente.setForeground(new java.awt.Color(204, 204, 204));
@@ -130,6 +135,10 @@ public class JanelaLogin extends javax.swing.JFrame implements CorPainelSelecion
         janelaPrincipal.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnNovoClienteActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        confirmacaoCancelar();
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
@@ -218,9 +227,11 @@ public class JanelaLogin extends javax.swing.JFrame implements CorPainelSelecion
     }
 
     @Override
-    public void confirmacaoCancelar(String msg) {
-        if(JOptionPane.showConfirmDialog(null, msg, "Confirmação!",WIDTH) == 0){
-            System.exit(0);
+    public void confirmacaoCancelar() {
+        String[] buttons = { "Sim", "Não", "Cancelar" };
+        if(JOptionPane.showOptionDialog(null, "Deseja realmente sair?", "Confirmação",
+        JOptionPane.WARNING_MESSAGE, 0, null, buttons, buttons[1]) == 0){
+            this.dispose();
         }
     }
 }

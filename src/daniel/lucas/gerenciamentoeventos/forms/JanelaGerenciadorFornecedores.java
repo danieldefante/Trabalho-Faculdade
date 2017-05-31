@@ -74,6 +74,11 @@ public class JanelaGerenciadorFornecedores extends javax.swing.JFrame implements
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Locais");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jTabbedPane1.setBackground(new java.awt.Color(51, 51, 51));
         jTabbedPane1.setForeground(new java.awt.Color(204, 204, 204));
@@ -370,7 +375,7 @@ public class JanelaGerenciadorFornecedores extends javax.swing.JFrame implements
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        confirmacaoCancelar("Deseja realmente fechar o gerenciamento de locais?");
+        confirmacaoCancelar();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jPanel2ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel2ComponentShown
@@ -384,6 +389,10 @@ public class JanelaGerenciadorFornecedores extends javax.swing.JFrame implements
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        confirmacaoCancelar();
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
@@ -488,9 +497,10 @@ public class JanelaGerenciadorFornecedores extends javax.swing.JFrame implements
     }
 
     @Override
-    public void confirmacaoCancelar(String msg) {
-        
-        if(JOptionPane.showConfirmDialog(null, msg, "Confirmação!",WIDTH) == 0){
+    public void confirmacaoCancelar() {
+        String[] buttons = { "Sim", "Não", "Cancelar" };
+        if(JOptionPane.showOptionDialog(null, "Deseja realmente sair?", "Confirmação",
+        JOptionPane.WARNING_MESSAGE, 0, null, buttons, buttons[1]) == 0){
             this.dispose();
         }
     }
