@@ -54,4 +54,5 @@ Contributor(s):
   <table-filter match-name="locais"/>
   <table-filter match-name="buffets"/>
   <table-filter match-name="eventos_decoracoes"/>
+
 </hibernate-reverse-engineering>

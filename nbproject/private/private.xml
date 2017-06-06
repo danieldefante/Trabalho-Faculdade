@@ -11,6 +11,11 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/lmontiel/studyspace/java/TrabalhoGerenciamentoEventos/src/daniel/lucas/gerenciamentoeventos/controller/ControllerPessoas.java</file>
+            <file>file:/home/lmontiel/studyspace/java/TrabalhoGerenciamentoEventos/src/daniel/lucas/gerenciamentoeventos/forms/JanelaLogin.java</file>
+            <file>file:/home/lmontiel/studyspace/java/TrabalhoGerenciamentoEventos/src/daniel/lucas/gerenciamentoeventos/principal/TrabalhoGerenciamentoEventos.java</file>
+            <file>file:/home/lmontiel/studyspace/java/TrabalhoGerenciamentoEventos/src/daniel/lucas/gerenciamentoeventos/forms/JanelaCadastroEvento.java</file>
+        </group>
     </open-files>
 </project-private>

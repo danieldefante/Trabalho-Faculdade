@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package daniel.lucas.gerenciamentoeventos.validador;
+package daniel.lucas.gerenciamentoeventos.entities;
 
 /**
  *
  * @author daniel
  */
-public interface ValidadorEntity<T> {
+public class Login {
     
-    public T camposObrigatorios(T entidade);
 }

@@ -12,11 +12,9 @@ import java.util.List;
  *
  * @author daniel
  */
-public interface ControllerGeneric<T> {  
-
-    public List<String> validar();
+public interface Controller<T> { 
     
-    public boolean insert();
+    public String insert();
 
     public T update();
 

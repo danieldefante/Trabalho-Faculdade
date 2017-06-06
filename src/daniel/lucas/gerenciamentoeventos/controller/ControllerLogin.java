@@ -3,35 +3,40 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package daniel.lucas.gerenciamentoeventos.daos;
+package daniel.lucas.gerenciamentoeventos.controller;
 
-import daniel.lucas.gerenciamentoeventos.entities.Decoracoes;
-import daniel.lucas.gerenciamentoeventos.utils.GenericCrud;
+import daniel.lucas.gerenciamentoeventos.entities.Login;
+import java.util.List;
 
 /**
  *
  * @author daniel
  */
-public class DecoracoesDAO extends GenericCrud<Decoracoes> {
+public class ControllerLogin implements Controller<Login>{
 
     @Override
-    public boolean insert(Decoracoes entity) {
+    public String insert() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean update(Decoracoes entity) {
+    public Login update() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean delete(Decoracoes entity) {
+    public Login delete() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Decoracoes find(Decoracoes entity) {
+    public Login find() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public List findAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }

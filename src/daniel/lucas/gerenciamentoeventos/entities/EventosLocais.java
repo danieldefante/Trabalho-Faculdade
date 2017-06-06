@@ -1,5 +1,5 @@
 package daniel.lucas.gerenciamentoeventos.entities;
-// Generated May 18, 2017 8:46:06 PM by Hibernate Tools 4.3.1
+// Generated May 29, 2017 10:42:29 PM by Hibernate Tools 4.3.1
 
 
 import java.math.BigDecimal;
