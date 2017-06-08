@@ -38,10 +38,9 @@ public class JanelaGerenciadorFornecedores extends javax.swing.JFrame implements
         setarCoresIcones();
         
         List<Locais> allLocais = ctrlLocais.list();
-   
-        for(Locais local : allLocais){
-            jComboBox2.addItem(new ComboItem(local.getNome(),local.getId().toString()));            
-        }
+        allLocais.forEach(local -> {
+            jComboBox2.addItem(local.getId() + " - "+local.getNome());            
+        });
     }
 
     /**
